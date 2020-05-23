@@ -1,0 +1,57 @@
+#!/bin/bash
+##! @description: usage
+##! @version: 1
+##! @author: Menglong TAN <tanmenglong@gmail.com>
+##! @date:   Sat May 23 13:50:01 2020
+
+## startup applications
+# wallpaper
+exec --no-startup-id nitrogen --restore &
+
+# dual screen
+#exec /home/crackcell/local/bin/c-screen
+#exec /home/crackcell/.screenlayout/two_external_sceens.sh
+
+# network manager applet
+exec --no-startup-id nm-applet &
+
+# disable touchpad
+#exec synclient TouchPadOff=1
+
+# gtk theme
+#exec mate-settings-daemon
+#exec /usr/libexec/gnome-settings-daemon
+#exec dconf write /org/gnome/settings-daemon/plugins/cursor/active false
+#exec /usr/lib/gnome-settings-daemon/gsd-xsettings
+exec /usr/libexec/gsd-xsettings &
+
+#exec synergy
+#exec /home/crackcell/.local/bin/c-share-keymouse-server
+
+# Power Manager
+#exec xfce4-power-manager
+
+# PlicyKit Authentication Agent
+#exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+
+# sound
+#exec start-pulseaudio-x11
+
+# Screensaver
+#exec xscreensaver -no-splash
+
+# Xfce Volumn Daemon
+#exec xfce4-volumed
+
+# IME
+#exec ibus-daemon
+exec fcitx -r &
+
+exec /home/crackcell/.local/bin/c-keyboard &
+
+#exec synology-cloud-station-drive
+exec synology-drive &
+
+trayer --edge top --align right --widthtype request --width 10 --height 20 --tint 0x262626 --expand true --transparent true --alpha 255 &
+
+exec /usr/bin/dwm > /dev/null
